@@ -1,0 +1,10 @@
+<h1>Show Resturant</h1>
+<p>Name: <strong><%= @restaurant.name%></strong></p>
+<p>Description: <strong><%= @restaurant.desc%></strong></p>
+<p>Address: <strong><%= @restaurant.address%></strong></p>
+<p>Phone Number: <strong><%= @restaurant.phone_number%></strong></p>
+
+<%= button_to "Edit", 	{action: :edit, 	id: @restaurant.id}, 	{method: :get} %>
+<%= button_to "Delete", {action: :destroy, 	id: @restaurant.id} %>
+
+<%= button_to "Back to Restaurant List", {action: :index}, {method: :get} %>

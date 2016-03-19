@@ -1,0 +1,25 @@
+<h1>Edit Restaurant</h1>
+
+<%= form_for(:restaurant, :url=> {:action=>'update'}) do |f| %>
+
+	<p>Name:</p> 
+	<%= f.text_field(:name) %><br/>
+	
+	<p>Description:</p> 
+	<%= f.text_field(:desc) %><br/>
+	
+	<p>Address:</p> 
+	<%= f.text_field(:address) %><br/>
+	
+	<p>Phone Number:</p> 
+	<%= f.text_field(:phone_number) %><br/><br/>
+	
+	<%= hidden_field_tag :id, @restaurant.id %>
+
+	<div class="form-buttons">
+		<%= submit_tag("Update") %>
+	</div>
+		
+<% end %>
+
+<%= button_to "Back to Restaurant List", {action: :index}, {method: :get} %>

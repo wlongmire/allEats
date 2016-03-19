@@ -1,0 +1,23 @@
+<h1>Create Restaurant</h1>
+
+<%= form_for(:restaurant, :url=> {:action=>'create'}) do |f| %>
+
+	<p>Name:</p> 
+	<%= f.text_field(:name) %><br/>
+	
+	<p>Description:</p> 
+	<%= f.text_field(:desc) %><br/>
+	
+	<p>Address:</p> 
+	<%= f.text_field(:address) %><br/>
+	
+	<p>Phone Number:</p> 
+	<%= f.text_field(:phone_number) %><br/><br/>
+
+	<div class="form-buttons">
+		<%= submit_tag("Create") %>
+	</div>
+		
+<% end %>
+
+<%= button_to "Back to Restaurant List", {action: :index}, {method: :get} %>
