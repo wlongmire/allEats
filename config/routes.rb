@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   
   post 'restaurant/:id/delete', to: 'restaurant#destroy'
 
+  get 'login', to: 'session#new'
+  get 'logout', to: 'session#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,15 @@
+<h1>Login</h1>
+
+<%= form_tag("restaurants", method: "get") do %>
+	<div>
+		<%= label_tag(:q, "Username:") %>
+  		<%= text_field_tag(:q) %>
+	</div>
+
+	<div>
+  		<%= label_tag(:q, "Password:") %>
+  		<%= text_field_tag(:q) %>
+	</div>
+	
+  	<%= submit_tag("Login") %>
+<% end %>
