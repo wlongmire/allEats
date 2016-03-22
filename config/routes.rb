@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :owners
+
   root 'restaurant#index'
 
   get 'restaurant/new', to: 'restaurant#new'

@@ -15,9 +15,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'List', 	{:action=> "index", :controller=>'restaurant'}%></li>
-        <li><%= link_to 'Create', 	{:action=> "new", :controller=>'restaurant'} %></li>
-        <li><%= link_to 'Logout', 	{:action=> "destroy", :controller=>'session'} %></li>
+        <li><%= link_to("List",   restaurants_path ) %></li>
+        <li><%= link_to("Logout", destroy_owner_session_path, :method => :delete) %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
