@@ -16,8 +16,14 @@ class RestaurantController < ApplicationController
 	def create
 		@restaurant = Restaurant.create(params.require(:restaurant).permit(:name, :owner, :address, :phone_number, :desc));
 		@restaurant.owner = current_owner
-		@restaurant.save
-		redirect_to ({action: :show, id: @restaurant.id})
+		if @restaurant.save
+			flash[:success] = "Successfully Created."
+			redirect_to ({action: :show, id: @restaurant.id})
+		else
+			flash[:alert] = @restaurant.errors.full_messages.join(", ")
+
+			render :new
+		end
 	end
 
 	def edit
