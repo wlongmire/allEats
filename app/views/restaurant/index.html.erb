@@ -4,6 +4,7 @@
 <tr>
 	<td>Name</td>
 	<td>Desc</td>
+	<td>Owner</td>
 	<td>Address</td>
 	<td>Phone Number</td>
 </tr>
@@ -12,7 +13,8 @@
 	<tr>
 		<td><%= r.name %> </td>
 		<td><%= r.desc %> </td>
-		<td><%= r.address %> </td>
+		<td><%= (r.owner.nil?) ? "No Owner" : r.owner.email %> </td>
+		<td><%= r.name %> </td>
 		<td><%= r.phone_number %> </td>
 
 		<td><%= button_to "Show", 	{action: :show, 	id: r.id}, 	{method: :get} %> </td>

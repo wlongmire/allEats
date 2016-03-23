@@ -1,10 +1,12 @@
 
 <h1>Show Resturant</h1>
-<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @restaurant.address.gsub " ", "_" %>&size=640x400&style=element:labels&key=AIzaSyAHp3ZyQ2x2w9_o5calzuyd8nvdNat5nAI" alt="">
+<% address = (@restaurant.address.nil?) ? "United_States" : @restaurant.address.gsub(" ", "_") %>
+<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= address %>&size=640x400&style=element:labels&key=AIzaSyAHp3ZyQ2x2w9_o5calzuyd8nvdNat5nAI" alt="">
 
 
 <p>Name: <strong><%= @restaurant.name%></strong></p>
 <p>Description: <strong><%= @restaurant.desc%></strong></p>
+<p>Owner: <strong><%= (@restaurant.owner.nil?)? "No Owner" : @restaurant.owner.email %></strong></p>
 <p>Address: <strong><%= @restaurant.address %></strong></p>
 <p>Phone Number: <strong><%= @restaurant.phone_number%></strong></p>
 

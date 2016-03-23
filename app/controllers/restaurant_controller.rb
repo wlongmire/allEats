@@ -1,8 +1,9 @@
 class RestaurantController < ApplicationController
+	before_filter :authenticate_owner!
 	before_action :authenticate_owner!
 	
 	def index
-		@restaurants = Restaurant.all
+		@restaurants = Restaurant.where({owner:current_owner})
 	end
 
 	def show
@@ -13,8 +14,9 @@ class RestaurantController < ApplicationController
 	end
 
 	def create
-		@restaurant = Restaurant.create(params.require(:restaurant).permit(:name, :address, :phone_number, :desc));
-
+		@restaurant = Restaurant.create(params.require(:restaurant).permit(:name, :owner, :address, :phone_number, :desc));
+		@restaurant.owner = current_owner
+		@restaurant.save
 		redirect_to ({action: :show, id: @restaurant.id})
 	end
 
