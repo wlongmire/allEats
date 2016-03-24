@@ -1,0 +1,1 @@
+An example restuarant app for the learning rails.
