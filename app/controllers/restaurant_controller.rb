@@ -4,10 +4,20 @@ class RestaurantController < ApplicationController
 	
 	def index
 		@restaurants = Restaurant.where({owner:current_owner})
+
+		respond_to do | format |
+			format.html
+			format.json {render :json => @restaurants }
+		end
 	end
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
+
+		respond_to do | format |
+			format.html
+			format.json {render :json => @restaurant }
+		end
 	end
 
 	def new
